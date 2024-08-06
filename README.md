@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -61,6 +62,7 @@
                         <th>Original Amount</th>
                         <th>Interest Rate</th>
                         <th>Total Amount</th>
+                        <th>Date</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -73,7 +75,7 @@
     </footer>
 
     <script>
-        function addPortfolioItem(name, amount, interestRate) {
+        function addPortfolioItem(name, amount, interestRate, date) {
             // Calculate total amount with interest
             const totalAmount = amount + (amount * (interestRate / 100));
 
@@ -85,11 +87,13 @@
             const cell2 = newRow.insertCell(1);
             const cell3 = newRow.insertCell(2);
             const cell4 = newRow.insertCell(3);
+            const cell5 = newRow.insertCell(4);
 
             cell1.textContent = name;
             cell2.textContent = `₹${amount.toFixed(2)}`;
             cell3.textContent = `${interestRate}%`;
             cell4.textContent = `₹${totalAmount.toFixed(2)}`;
+            cell5.textContent = date;
         }
 
         window.onload = function() {
@@ -97,9 +101,10 @@
             const name = 'C.Hamsavarthan';
             const amount = 8000;
             const interestRate = 1.5;
+            const date = '2024-08-06'; // Replace with the desired date
 
             // Add the portfolio item with the provided values
-            addPortfolioItem(name, amount, interestRate);
+            addPortfolioItem(name, amount, interestRate, date);
         };
     </script>
 </body>
